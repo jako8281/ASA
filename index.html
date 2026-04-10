@@ -64,7 +64,7 @@
 <div class="container" id="seating"></div>
 
 <script>
-  /* FORNAVNE (Lucas tydeligt adskilt) */
+  /* FORNAVNE */
   const names = [
     "Agnes","Aksel","Alfred","Alma","Christoffer","Emmelie",
     "Esther","Ingeborg","Isabella","Jens","Karoline","Lucas K",
@@ -72,8 +72,9 @@
     "Valdemar","Villum","William"
   ];
 
+  /* DAGLIG SEED */
   function getSeatDay() {
-    return new Date().toISOString().slice(0,10);
+    return new Date().toISOString().slice(0, 10);
   }
 
   function shuffle(array, seed) {
@@ -91,20 +92,22 @@
     return array;
   }
 
-  const shuffled = shuffle([...names], parseInt(getSeatDay().replace(/-/g,"")));
+  const shuffled = shuffle(
+    [...names],
+    parseInt(getSeatDay().replace(/-/g, ""))
+  );
 
-  /* 22 pladser
-     - Blå: 4 pladser
-     - Turkis: 2 pladser
-     - Øvrige: 3 pladser */
+  /* FARVER
+     6 farver × 3 = 18
+     Turkis × 4 = 22 */
   const seatColors = [
-    "#87CEEB","#87CEEB","#87CEEB","#87CEEB",   // blå (4)
-    "#FFCC80","#FFCC80","#FFCC80",
-    "#FFFF00","#FFFF00","#FFFF00",
-    "#FF0000","#FF0000","#FF0000",
-    "#008000","#008000","#008000",
-    "#808080","#808080","#808080",
-    "#40E0D0","#40E0D0"                        // turkis (2)
+    "#FFCC80","#FFCC80","#FFCC80",   // orange
+    "#FFFF00","#FFFF00","#FFFF00",   // gul
+    "#FF0000","#FF0000","#FF0000",   // rød
+    "#008000","#008000","#008000",   // grøn
+    "#808080","#808080","#808080",   // grå
+    "#87CEEB","#87CEEB","#87CEEB",   // blå
+    "#40E0D0","#40E0D0","#40E0D0","#40E0D0" // turkis (4)
   ];
 
   const beltNumbers = [
